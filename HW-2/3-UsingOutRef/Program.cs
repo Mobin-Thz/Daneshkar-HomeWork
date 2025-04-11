@@ -6,18 +6,13 @@
         {
             Statistics statistics = new Statistics();
             Console.WriteLine("Enter number1: ");
-            string temp1 = Console.ReadLine();
-            int number1 = int.Parse(temp1);
+            int number1 = int.Parse(Console.ReadLine());
             
 
             Console.WriteLine("Enter number2: ");
-            string temp2 = Console.ReadLine();
-            int number2 = int.Parse(temp2);
+            int number2 = int.Parse(Console.ReadLine());
             
-
-            Console.WriteLine("Enter number3: ");
-            string temp3 = Console.ReadLine();
-            int number3 = int.Parse(temp3);
+            int number3;
             
 
             statistics.AnalyzeNumbers(number1 ,ref number2,out number3);
