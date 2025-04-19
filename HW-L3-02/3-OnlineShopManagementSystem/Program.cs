@@ -1,4 +1,5 @@
-﻿namespace _3_OnlineShopManagementSystem
+﻿
+namespace _3_OnlineShopManagementSystem
 {
     internal class Program
     {
@@ -11,7 +12,7 @@
                 );
 
             LG_monitor.GetProductDetail();
-            LG_monitor.ApplyDiscount(discountPercentage: 10);
+            ((Idiscountable)LG_monitor).ApplyDiscount(discountPercentage: 10);
 
             Console.WriteLine();
 
@@ -23,7 +24,7 @@
                 );
 
             coat.GetProductDetail();
-            coat.ApplyDiscount(discountPercentage:30);
+            ((Idiscountable)coat).ApplyDiscount(discountPercentage: 10);
 
         }
 
@@ -53,8 +54,6 @@
 
             public Electronic(string name, int price, string warrantyperiod) : base(name, price)
             {
-                this.Name = name;
-                this.Price = price;
                 this.WarrantyPeriod = warrantyperiod;
             }
 
@@ -64,15 +63,6 @@
                 Console.WriteLine($" WarrantyPeriod: {this.WarrantyPeriod}");
 
             }
-
-
-            public void ApplyDiscount(float discountPercentage)
-            {
-                float discountAmount = (discountPercentage / 100) * this.Price;
-                float finalPrice = this.Price - discountAmount;
-                Console.WriteLine($"The final price is {finalPrice}.\n");
-            }
-
 
         }
 
@@ -84,8 +74,7 @@
 
             public Clothing(string name, int price, string size, string material) : base(name, price)
             {
-                this.Name = name;
-                this.Price = price;
+
                 this.Size = size;
                 this.Material = material;
 
@@ -100,21 +89,26 @@
 
             }
 
-            public void ApplyDiscount(float discountPercentage)
-            {
-                float discountAmount = (discountPercentage / 100) * this.Price;
-                float finalPrice = this.Price - discountAmount;
-                Console.WriteLine($"The final price is {finalPrice}.\n");
-            }
-
 
         }
 
         interface Idiscountable
         {
+            int Price { get; set; }
 
-            void ApplyDiscount(int discount)
+            public void ApplyDiscount(float discountPercentage)
             {
+                if (discountPercentage < 0 || discountPercentage >= 100)
+                {
+                    Console.WriteLine("Invalid input!");
+                }
+                else
+                {
+                    float discountAmount = (discountPercentage / 100) * Price;
+                    float finalPrice = Price - discountAmount;
+                    Console.WriteLine($"The final price is {finalPrice}.\n");
+
+                }
             }
         }
     }
