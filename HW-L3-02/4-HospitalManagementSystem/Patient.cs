@@ -9,11 +9,10 @@
 
             public Patient(string name,int age, int nationid, int patientid,List<string>? medicalhistoty= null): base(name, age, nationid) 
             {
-                this.Name = name;
-                this.Age = age;
-                this.NationalID = nationid;
                 this.PatientID = patientid;
                 this.MedicalHistory = medicalhistoty ?? new List<string>() ;
+                Hospital.AddPatientHospital(this);
+                
             }
 
 

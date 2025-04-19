@@ -9,11 +9,9 @@
 
             public Doctor(string name, int age, int nationid, int doctorid, string specialization ) : base(name, age, nationid)
             {
-                this.Name= name;
-                this.Age = age;
-                this.NationalID = nationid;
                 this.DoctorID = doctorid;
                 this.Specialization = specialization;
+                Hospital.AddDoctorToHospital(this);
             }
 
             public void Diagnose(Patient patient, string disease)

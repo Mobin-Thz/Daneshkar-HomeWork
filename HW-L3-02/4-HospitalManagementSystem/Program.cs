@@ -23,7 +23,7 @@
                  age: 23,
                  nationid: 0045459564,
                  patientid: 2
-                  );          
+                  );
 
             Patient patient3 = new Patient(
                 name: "patient3",
@@ -40,16 +40,32 @@
                 specialization: "GP"
                 );
 
-            Room room34 = new Room(
-                roomnuber: 34,
+            Room room10 = new Room(
+                roomnumber: 10,
                 capacity: 2
                 );
 
-            room34.AssignPatient(patient1);
-            room34.AssignPatient(patient2);
-            room34.AssignPatient(patient3);
+            Room room11 = new Room(
+            roomnumber: 11,
+            capacity: 2
+             );
+            Room room12 = new Room(
+            roomnumber: 12,
+            capacity: 2
+             );
+            Room room13 = new Room(
+            roomnumber: 13,
+            capacity: 2
+            );
 
-            room34.ShowPatients();
+
+
+            //room10.ShowPatients();
+
+            MiladHospital.ShowRooms();
+            MiladHospital.ShowPatients();
+            MiladHospital.ShowDoctors();
+
 
         }
     }

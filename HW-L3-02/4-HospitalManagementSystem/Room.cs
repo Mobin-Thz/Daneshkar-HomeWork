@@ -10,11 +10,17 @@ namespace _4_HospitalManagementSystem
             public int Capacity { get; set; }
             public List<Patient> Patients { get; set; }
 
-            public Room(int roomnuber, int capacity, List<Patient>? patient = null)
+            public Room(int roomnumber, int capacity, List<Patient>? patient = null)
             {
-                this.RoomNumber = roomnuber;
+                this.RoomNumber = roomnumber;
                 this.Capacity = capacity;
                 this.Patients = patient ?? new List<Patient>();
+                Hospital.AddRoomToHospital(this);
+            }
+
+            public bool HasAvailableCapacity()
+            {
+                return this.Patients.Count < this.Capacity;
             }
 
 
@@ -31,7 +37,7 @@ namespace _4_HospitalManagementSystem
             {
                 try
                 {
-                    if (this.Patients.Count >= this.Capacity)
+                    if (this.HasAvailableCapacity() == false)
                     {
                         throw new InvalidOperationException($"The room {RoomNumber} is full");
                     }
