@@ -14,9 +14,6 @@
                 patientid: 1
                 );
 
-            patient1.AddToMedicalHistory("Flu");
-            patient1.ShowMedicalHistory();
-
 
             Patient patient2 = new Patient(
                  name: "patient2",
@@ -60,12 +57,23 @@
 
 
 
+
+            MiladHospital.AdmitPatient(patient3);
+            MiladHospital.AdmitPatient(patient2);
+            MiladHospital.AdmitPatient(patient1);
+
+
+            patient1.AddToMedicalHistory("Flu");
+            reza.Diagnose(patient1,"Ashtma");
+            patient1.ShowMedicalHistory();
+
+
             //room10.ShowPatients();
 
             MiladHospital.ShowRooms();
             MiladHospital.ShowPatients();
             MiladHospital.ShowDoctors();
-
+            
 
         }
     }

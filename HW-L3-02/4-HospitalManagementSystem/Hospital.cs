@@ -26,7 +26,10 @@
              List<Doctor> doctors { get;  set; }
              List<Room> rooms { get;  set; }
 
+            public void ChekingRoomsCapacity()
+            {
 
+            }
 
             public static void AddRoomToHospital(Room room)
             {
@@ -66,7 +69,7 @@
 
             public void ShowDoctors()
             {
-                Console.WriteLine("---Hospitals's Rooms---");
+                Console.WriteLine("---Hospitals's Doctors---");
                 foreach (var doctor in doctors)
                 {
                     Console.WriteLine($"doctor({doctor.Specialization}): {doctor.Name}");
@@ -77,7 +80,15 @@
 
             public void AdmitPatient(Patient patient)
             {
-                patients.Add(patient);
+                foreach (var room in rooms)
+                {
+                    if (room.HasAvailableCapacity() == true)
+                    {
+                        room.AssignPatient(patient);
+                        break;
+                    }
+
+                }
             }
 
             public void DischargePatient(Patient patient)
