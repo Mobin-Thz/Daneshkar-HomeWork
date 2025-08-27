@@ -8,7 +8,6 @@
             Console.WriteLine("Enter integers separated by space (at least 3 numbers):");
             string input = Console.ReadLine();
 
-            // Parse input
             int[] numbers;
             try
             {

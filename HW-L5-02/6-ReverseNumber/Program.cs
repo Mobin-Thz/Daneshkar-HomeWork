@@ -21,7 +21,7 @@
         static int ReverseNumber(int num)
         {
             int result = 0;
-            int number = Math.Abs(num); // برای منفی‌ها، قدرمطلق بگیر
+            int number = Math.Abs(num);
 
             while (number > 0)
             {
@@ -30,7 +30,7 @@
                 number /= 10;
             }
 
-            return num < 0 ? -result : result; // اگه منفی بود منفی کن برگردون
+            return num < 0 ? -result : result; 
         }
     
     }
