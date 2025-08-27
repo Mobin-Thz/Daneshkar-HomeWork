@@ -361,3 +361,6 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+/BookStore.rar
+/HW-L5-01.rar
+/HW-L5-02.rar
